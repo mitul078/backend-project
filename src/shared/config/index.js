@@ -15,14 +15,23 @@ const env = {
         mongoUri: required("MONGO_URI")
     },
 
-    auth: {
-        jwtSecret: required("JWT_SECRET"),
-        refreshToken: required("REFRESH_TOKEN"),
-        accessToken: required("ACCESS_TOKEN")
-    },
+    // auth: {
+    //     jwtSecret: required("JWT_SECRET"),
+    //     refreshToken: required("REFRESH_TOKEN"),
+    //     accessToken: required("ACCESS_TOKEN")
+    // },
 
-    redis: {
-        redisUrl: required("REDIS_URL")
+    // redis: {
+    //     redisUrl: required("REDIS_URL")
+    // },
+
+    mail: {
+        host: required("MAIL_HOST"),
+        password: required("MAIL_PASSWORD"),
+        user: required("MAIL_USER"),
+        port: required("MAIL_PORT"),
+        from: required("MAIL_FROM")
+
     }
 
 }

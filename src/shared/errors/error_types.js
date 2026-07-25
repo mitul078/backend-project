@@ -1,4 +1,4 @@
-import AppError from "./AppError.js";
+import AppError from "./app_error.js";
 
 export class NotFoundError extends AppError {
     constructor(message = "NOT FOUND") {
