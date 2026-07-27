@@ -1,18 +1,19 @@
 import app from "./app.js";
 import connectDB from "./infra/db.js";
+import logger from "./infra/logs/logger.js";
 import env from "./shared/config/index.js";
 
 async function bootstrap() {
     await connectDB()
 
     app.listen(env.port, () => {
-        console.log("SERVER RUNNING ON...")
+        logger.info("SERVER CONNECTED")
     })
 
 }
 
 bootstrap().catch(e => {
-    console.error("FAILED TO START SERVER")
+    logger.warn("SERVER FAILED TO START")
     process.exit(1)
 
 })

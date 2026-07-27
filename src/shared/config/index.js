@@ -10,6 +10,7 @@ function required(key) {
 
 const env = {
     port: process.env.PORT || 4000,
+    env: process.env.ENV || "development",
 
     db: {
         mongoUri: required("MONGO_URI")
