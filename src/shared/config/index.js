@@ -15,11 +15,12 @@ const env = {
         mongoUri: required("MONGO_URI")
     },
 
-    // auth: {
-    //     jwtSecret: required("JWT_SECRET"),
-    //     refreshToken: required("REFRESH_TOKEN"),
-    //     accessToken: required("ACCESS_TOKEN")
-    // },
+    auth: {
+        refreshToken: required("REFRESH_TOKEN"),
+        accessToken: required("ACCESS_TOKEN"),
+        refreshTokenExpiry: required("REFRESH_EXPIRY"),
+        accessTokenExpiry: required("ACCESS_EXPIRY")
+    },
 
     // redis: {
     //     redisUrl: required("REDIS_URL")
