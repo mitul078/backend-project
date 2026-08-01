@@ -1,6 +1,6 @@
 import jwt from "jsonwebtoken"
 import env from "../config/index.js"
-import { UnauthorizedError } from "../errors"
+import { UnauthorizedError } from "../errors/error_types.js"
 
 export default function authenticate(req, res, next) {
     const auth_header = req.headers.authorization

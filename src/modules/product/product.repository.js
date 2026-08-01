@@ -30,8 +30,8 @@ async function product_by_id(productId, userId) {
     return Product.findOne({ _id: productId, userId })
 }
 
-async function update_images(productId, images) {
-    return Product.findOneAndUpdate({ _id: productId }, { images }, { new: true })
+async function upload_images(productId, images) {
+    return Product.findOneAndUpdate({ _id: productId }, { images, status: "DRAFT" }, { new: true })
 }
 
 async function remove_product(productId) {
@@ -58,7 +58,7 @@ export default {
     save_product,
     list_product,
     product_by_id,
-    update_images,
+    upload_images,
     remove_product,
     update_product,
     set_status
