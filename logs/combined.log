@@ -25,3 +25,16 @@
 {"level":"info","message":"DATABASE CONNECTED","service":"backend-internship-project","timestamp":"2026-08-02T05:38:07.079Z"}
 {"level":"info","message":"LOGGER STARTED AND LISTENING FOR JOBS","service":"backend-internship-project","timestamp":"2026-08-02T05:38:07.083Z"}
 {"level":"info","message":"IMAGE PROCESSED FOR PRODUCT: ","service":"backend-internship-project","timestamp":"2026-08-02T05:41:06.543Z"}
+{"level":"info","message":"REDIS CONNECTED","service":"backend-internship-project","timestamp":"2026-08-02T10:49:30.347Z"}
+{"level":"info","message":"DATABASE CONNECTED","service":"backend-internship-project","timestamp":"2026-08-02T10:49:31.265Z"}
+{"level":"info","message":"SERVER CONNECTED","service":"backend-internship-project","timestamp":"2026-08-02T10:49:31.309Z"}
+{"level":"info","message":"REDIS CONNECTED","service":"backend-internship-project","timestamp":"2026-08-02T10:50:05.080Z"}
+{"level":"info","message":"DATABASE CONNECTED","service":"backend-internship-project","timestamp":"2026-08-02T10:50:05.695Z"}
+{"level":"info","message":"LOGGER STARTED AND LISTENING FOR JOBS","service":"backend-internship-project","timestamp":"2026-08-02T10:50:05.697Z"}
+{"level":"info","message":"DATABASE CONNECTED","service":"backend-internship-project","timestamp":"2026-08-02T10:50:05.996Z"}
+{"level":"info","message":"SERVER CONNECTED","service":"backend-internship-project","timestamp":"2026-08-02T10:50:06.003Z"}
+{"level":"info","message":"REDIS CONNECTED","service":"backend-internship-project","timestamp":"2026-08-02T10:53:11.274Z"}
+{"level":"info","message":"DATABASE CONNECTED","service":"backend-internship-project","timestamp":"2026-08-02T10:53:12.141Z"}
+{"level":"info","message":"SERVER CONNECTED","service":"backend-internship-project","timestamp":"2026-08-02T10:53:12.146Z"}
+{"level":"info","message":"DATABASE CONNECTED","service":"backend-internship-project","timestamp":"2026-08-02T10:53:14.835Z"}
+{"level":"info","message":"LOGGER STARTED AND LISTENING FOR JOBS","service":"backend-internship-project","timestamp":"2026-08-02T10:53:14.837Z"}

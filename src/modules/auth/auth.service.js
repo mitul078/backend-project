@@ -3,9 +3,10 @@ import authRepository from "./auth.repository.js"
 import { ConflictError, NotFoundError, UnauthorizedError, ValidationError } from "../../shared/errors/index.js"
 import bcrypt from "bcrypt"
 import generate_otp from "../../shared/utils/otp_generate.js"
-import { send_email } from "../../infra/mail/mailer.js"
 import { otp_template } from "../../infra/mail/templates/otp.js"
 import { generate_family_id, hash_token, set_access_token, set_refresh_token, verify_refresh_token } from "../../shared/utils/token_generate.js"
+import { email_queue } from "../../infra/queues/queues.js"
+
 
 async function signup({ email, password }) {
     const existing_user = await authRepository.find_by_email(email)
@@ -21,12 +22,11 @@ async function signup({ email, password }) {
     const hash_otp = await bcrypt.hash(String(otp), 10)
     await authRepository.save_otp({ email, otp: hash_otp })
 
-    await send_email({
+    await email_queue.add("sent-otp", {
         to: email,
-        subject: "Verify your email",
+        subject: "VERIFY YOUR ACCOUNT",
         html: otp_template(otp)
-    }).catch((err) => console.error("EMAIL SENT FAILED"))
-
+    })
 
     return { id: user._id, email: user.email }
 }
@@ -98,10 +98,10 @@ async function rotate_refresh_token(token) {
 
     await authRepository.revoke_token(hashToken)
     const user = await authRepository.find_by_email(decoded.email)
-    
+
     const payload = { id: user._id, email: user.email }
     const access_token = set_access_token(payload)
-    const refresh_token = set_refresh_token({ ...payload, family:stored_token.family })
+    const refresh_token = set_refresh_token({ ...payload, family: stored_token.family })
 
     await authRepository.save_refresh_token({
         userId: user._id,

@@ -1,6 +1,7 @@
 import connectDB from "./infra/db.js";
 import logger from "./infra/logs/logger.js";
 import "./modules/product/jobs/image_processing.worker.js";
+import "./modules/auth/jobs/otp_email.worker.js"
 
 async function bootstrap() {
     await connectDB()
