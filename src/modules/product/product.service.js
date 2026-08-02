@@ -1,4 +1,5 @@
 import { resize_image } from "../../infra/image/resize.js";
+import { image_queue } from "../../infra/queues/queues.js";
 import { ConflictError, NotFoundError } from "../../shared/errors/error_types.js";
 import productRepository from "./product.repository.js";
 
@@ -66,12 +67,12 @@ async function put_images(productId, userId, filePath) {
     const product = await productRepository.product_by_id(productId, userId)
     if (!product) throw new NotFoundError("PRODUCT NOT FOUND OR YOU CAN'T ACCESS IT")
 
-    const resized_images = await resize_image(filePath)
+    await image_queue.add("resize-product-image", {
+        productId: product._id,
+        filePath
+    })
 
-    const updated_product = await productRepository.upload_images(product._id, [resized_images])
-
-    return { updated_product }
-
+    return { message: "IMAGE UPLOADED, PROCESSING IN BACKGROUND" }
 
 }
 

@@ -1,5 +1,6 @@
 import sharp from "sharp";
 import path from "path"
+import { image_queue } from "../queues/queues.js";
 
 const SIZES = {
     thumbnail: 150,
@@ -22,6 +23,7 @@ export async function resize_image(input_path) {
 
         result[label] = output_path
     }
+
 
     return result
 

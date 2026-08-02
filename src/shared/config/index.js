@@ -23,9 +23,9 @@ const env = {
         accessTokenExpiry: required("ACCESS_EXPIRY")
     },
 
-    // redis: {
-    //     redisUrl: required("REDIS_URL")
-    // },
+    redis: {
+        url: required("REDIS_URL")
+    },
 
     mail: {
         host: required("MAIL_HOST"),
